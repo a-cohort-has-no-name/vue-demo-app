@@ -1,12 +1,10 @@
 /* global Vue */
 document.addEventListener("DOMContentLoaded", function(event) { 
   var app = new Vue({
-    el: '#app',
+    el: '#tasks',
     data: {
       message: 'Hello Vue!',
-      task1: 'Take out the trash',
-      task2: 'Feed the cat',
-      task3: 'Mow the lawn'
+      tasks: ['Take out the trash', 'Feed the cat', 'Mow the lawn']
     },
     mounted: function() {
 

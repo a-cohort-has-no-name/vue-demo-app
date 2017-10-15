@@ -6,4 +6,8 @@
   <ul>
     <li v-for="review in reviews">{{ review }}</li>
   </ul>
+
+  <h3>Add a Review:</h3>
+  <input v-model='newReview'>
+  <button v-on:click="addReview()">Add Review</button>
 </div>

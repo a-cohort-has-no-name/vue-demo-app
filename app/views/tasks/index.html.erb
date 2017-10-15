@@ -1,9 +1,9 @@
-<div id="app">
+<div id="tasks">
   {{ message }}
   <input v-model="message">
   <h2>Tasks:</h2>
-  <p>{{ task1 }}</p>
-  <p>{{ task2 }}</p>
-  <p>{{ task3 }}</p>
-  <input v-model="task3">
+  <ul>
+    <li v-for="task in tasks">{{ task }}</li>
+  </ul>
+  <input v-model="tasks[2]">
 </div>
