@@ -1,0 +1,9 @@
+<div id="app">
+  {{ message }}
+  <input v-model="message">
+
+  <h3>Reviews:</h3>
+  <ul>
+    <li v-for="review in reviews">{{ review }}</li>
+  </ul>
+</div>
