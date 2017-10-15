@@ -1,9 +1,13 @@
-<div id="tasks">
+<div id="task">
   {{ message }}
   <input v-model="message">
   <h2>Tasks:</h2>
   <ul>
-    <li v-for="task in tasks">{{ task }}</li>
+    <li v-for="task in tasks" v-on:click="completeTask(task)">{{ task }}</li>
   </ul>
   <input v-model="tasks[2]">
+
+  <h3>Add a Task:</h3>
+  <input v-model='newTask'>
+  <button v-on:click="addTask()">Add Task</button>
 </div>
