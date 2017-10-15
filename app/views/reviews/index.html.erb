@@ -4,7 +4,7 @@
 
   <h3>Reviews:</h3>
   <ul>
-    <li v-for="review in reviews">{{ review }}</li>
+    <li v-for="review in reviews" v-if="isPositive(review)">{{ review }}</li>
   </ul>
 
   <h3>Add a Review:</h3>

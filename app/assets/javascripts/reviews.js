@@ -7,7 +7,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
       reviews: [
         "Vue.js is the best thing since sliced bread!",
         "I love Vue.js, especially when I'm programming!",
-        "Vue.js is waaaaay better than Chinese Checkers."
+        "Vue.js is waaaaay better than Chinese Checkers.",
+        "Vue.js is bad."
       ],
       newReview: ''
     },
@@ -17,6 +18,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     methods: {
       addReview: function() {
         this.reviews.push(this.newReview);
+      },
+      isPositive: function(inputReview) {
+        // return true if bad is not in our string
+        // return false if bad is in our string
+        return inputReview.indexOf('bad') === -1;
       }
     },
     computed: {
