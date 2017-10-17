@@ -5,19 +5,37 @@ document.addEventListener("DOMContentLoaded", function(event) {
     data: {
       message: 'Hello Reviews!',
       reviews: [
-        "Vue.js is the best thing since sliced bread!",
-        "I love Vue.js, especially when I'm programming!",
-        "Vue.js is waaaaay better than Chinese Checkers.",
-        "Vue.js is bad."
+        {
+          text: "Vue.js is the best thing since sliced bread!",
+          rating: 5,
+          reviewer: "Ian Matthews"
+        },
+        {
+          text: "I love Vue.js, especially when I'm programming!",
+          rating: 4,
+          reviewer: "Krunal Patel"
+        },
+        {
+          text: "Vue.js is waaaaay better than Chinese Checkers.",
+          rating: 3,
+          reviewer: "Kathleen Domingo"
+        }
       ],
-      newReview: ''
+      newReviewText: '',
+      newReviewRating: '',
+      newReviewReviewer: ''
     },
     mounted: function() {
 
     },
     methods: {
       addReview: function() {
-        this.reviews.push(this.newReview);
+        var newReview = {
+          text: this.newReviewText,
+          rating: this.newReviewRating,
+          reviewer: this.newReviewReviewer
+        }
+        this.reviews.push(newReview);
       },
       isPositive: function(inputReview) {
         // return true if bad is not in our string
@@ -30,3 +48,9 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   });
 });
+
+
+
+
+
+
