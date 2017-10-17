@@ -4,22 +4,57 @@ document.addEventListener("DOMContentLoaded", function(event) {
     el: '#task',
     data: {
       message: 'Hello Vue!',
-      tasks: ['Take out the trash', 'Feed the cat', 'Mow the lawn'],
-      newTask: ''
+      tasks: [
+        {
+          text: 'Take out the trash',
+          completed: false
+        },
+        {
+          text: 'Feed the cat',
+          completed: false
+        },
+        {
+          text: 'Mow the lawn',
+          completed: false
+        }
+      ],
+      newTaskText: ''
     },
     mounted: function() {
 
     },
     methods: {
       addTask: function() {
-        if (this.newTask) {
-          this.tasks.push(this.newTask);
-          this.newTask = '';
+        if (this.newTaskText) {
+          var newTask = {
+            text: this.newTaskText,
+            completed: false
+          }
+          this.tasks.push(newTask);
+          this.newTaskText = '';
         }
       },
       completeTask: function(inputTask) {
-        var index = this.tasks.indexOf(inputTask);
-        this.tasks.splice(index, 1);
+        inputTask.completed = !inputTask.completed
+      },
+      numberOfIncompleteTasks: function() {
+        var count = 0;
+        for (var i = 0; i < this.tasks.length; i++) {
+          //if !task.complete, increase count
+          if (!this.tasks[i].completed) {
+            count++
+          }
+        }
+        return count;
+      },
+      removeCompletedTasks: function() {
+        var incompleteTasks = [];
+        for (var i = 0; i < this.tasks.length; i++) {
+          if (!this.tasks[i].completed) {
+            incompleteTasks.push(this.tasks[i]);
+          }
+        }
+        this.tasks = incompleteTasks;
       }
     },
     computed: {
@@ -27,3 +62,20 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

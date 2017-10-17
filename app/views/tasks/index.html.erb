@@ -1,13 +1,15 @@
 <div id="task">
   {{ message }}
   <input v-model="message">
+  <h5>{{ numberOfIncompleteTasks() }} tasks left todo.</h5>
   <h2>Tasks:</h2>
   <ul>
-    <li v-for="task in tasks" v-on:click="completeTask(task)">{{ task }}</li>
+    <li v-for="task in tasks" v-on:click="completeTask(task)" v-bind:class="{strike: task.completed}">{{ task.text }}</li>
   </ul>
-  <input v-model="tasks[2]">
+
+  <button v-on:click="removeCompletedTasks()">Remove Complete Tasks</button>
 
   <h3>Add a Task:</h3>
-  <input v-model='newTask'>
+  <input v-model='newTaskText'>
   <button v-on:click="addTask()">Add Task</button>
 </div>
